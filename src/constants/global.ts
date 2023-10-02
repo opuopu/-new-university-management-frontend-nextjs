@@ -1,104 +1,120 @@
 export const genderOptions = [
-    {
-        label: "Male",
-        value:"male"
-    },
-    {
-        label: "Female",
-        value:"female"
-    },
-    {
-        label: "Others",
-        value:"others"
-    },
-]
+  {
+    label: "Male",
+    value: "male",
+  },
+  {
+    label: "Female",
+    value: "female",
+  },
+  {
+    label: "Others",
+    value: "others",
+  },
+];
 export const departmentOptions = [
-    {
-        label: "HR",
-        value:"hr manager"
-    },
-    {
-        label: "Finance",
-        value:"finance"
-    },
-    {
-        label: "Management",
-        value:"management"
-    },
-]
-
+  {
+    label: "HR",
+    value: "hr manager",
+  },
+  {
+    label: "Finance",
+    value: "finance",
+  },
+  {
+    label: "Management",
+    value: "management",
+  },
+];
 
 export const bloodGroupOptions = [
-	{
-		label: 'A+',
-		value: 'A+',
-	},
-	{
-		label: 'A-',
-		value: 'A-',
-	},
-	{
-		label: 'B+',
-		value: 'B+',
-	},
-	{
-		label: 'B-',
-		value: 'B-',
-	},
-	{
-		label: 'AB+',
-		value: 'AB+',
-	},
-	{
-		label: 'AB-',
-		value: 'AB-',
-	},
-	{
-		label: 'O+',
-		value: 'O+',
-	},
-	{
-		label: 'O-',
-		value: 'O-',
-	},
+  {
+    label: "A+",
+    value: "A+",
+  },
+  {
+    label: "A-",
+    value: "A-",
+  },
+  {
+    label: "B+",
+    value: "B+",
+  },
+  {
+    label: "B-",
+    value: "B-",
+  },
+  {
+    label: "AB+",
+    value: "AB+",
+  },
+  {
+    label: "AB-",
+    value: "AB-",
+  },
+  {
+    label: "O+",
+    value: "O+",
+  },
+  {
+    label: "O-",
+    value: "O-",
+  },
 ];
 
 export const facultyOptions = [
-	{
-		label: 'Engineering',
-		value: 'engineering',
-	},
-	{
-		label: 'Faculty of science and engineering',
-		value: 'Faculty of science and engineering',
-	},
-]
+  {
+    label: "Engineering",
+    value: "engineering",
+  },
+  {
+    label: "Faculty of science and engineering",
+    value: "Faculty of science and engineering",
+  },
+];
 export const acDepartmentOptions = [
-	{
-		label: 'CSE',
-		value: 'cse',
-	},
-	{
-		label: 'Software Engineering',
-		value: 'software engineering',
-	},
-]
+  {
+    label: "CSE",
+    value: "cse",
+  },
+  {
+    label: "Software Engineering",
+    value: "software engineering",
+  },
+];
 export const acSemesterOptions = [
-	{
-		label: 'Fall 2023',
-		value: 'fall23',
-	},
-	{
-		label: 'Autumn 2023',
-		value: 'autumn2023',
-	},
-	{
-		label: 'Summer 2023',
-		value: 'summer23',
-	},
-]
+  {
+    label: "Fall 2023",
+    value: "fall23",
+  },
+  {
+    label: "Autumn 2023",
+    value: "autumn2023",
+  },
+  {
+    label: "Summer 2023",
+    value: "summer23",
+  },
+];
 
+export const columns = [
+  {
+    title: "Department Title",
+    dataIndex: "title",
+  },
+  {
+    title: "CreatedAt",
+    dataIndex: "createdAt",
+  },
+];
 
-
-
-
+export const dataSource = [
+  {
+    key: "1",
+    title: "something",
+  },
+  {
+    key: "2",
+    title: "something",
+  },
+];

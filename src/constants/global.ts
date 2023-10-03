@@ -96,25 +96,3 @@ export const acSemesterOptions = [
     value: "summer23",
   },
 ];
-
-export const columns = [
-  {
-    title: "Department Title",
-    dataIndex: "title",
-  },
-  {
-    title: "CreatedAt",
-    dataIndex: "createdAt",
-  },
-];
-
-export const dataSource = [
-  {
-    key: "1",
-    title: "something",
-  },
-  {
-    key: "2",
-    title: "something",
-  },
-];

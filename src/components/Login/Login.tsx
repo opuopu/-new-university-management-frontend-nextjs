@@ -23,12 +23,12 @@ const LoginPage = () => {
   const onSubmit: SubmitHandler<FormValues> = async (data: any) => {
     try {
       const res = await userLogin({ ...data }).unwrap();
-      // console.log(res);
-      if (res?.accessToken) {
+
+      if (res?.data?.accessToken) {
         router.push("/profile");
         message.success("User logged in successfully!");
       }
-      storeUserInfo({ accessToken: res?.accessToken });
+      storeUserInfo({ accessToken: res?.data?.accessToken });
       // console.log(res);
     } catch (err: any) {
       console.error(err.message);

@@ -1,13 +1,24 @@
 "use client";
 import TableProvider from "@/components/table/TableProvider";
 import UMBreadCrumb from "@/components/ui/UMBreadCrumb";
-import { columns, dataSource } from "@/constants/global";
-import { useGetallDepartmentsQuery } from "@/redux/api/departmentApi";
+
+import {
+  useDeleteDepartmentMutation,
+  useGetSingleDepartmentQuery,
+  useGetallDepartmentsQuery,
+} from "@/redux/api/departmentApi";
+import {
+  DeleteOutlined,
+  EditOutlined,
+  EyeOutlined,
+  ReloadOutlined,
+} from "@ant-design/icons";
 import { useDebounced } from "@/redux/hooks";
 
-import { Button, Input } from "antd";
+import { Button, Input, message } from "antd";
 import Link from "next/link";
 import { useState } from "react";
+import ActionBar from "@/components/ui/ActionBar";
 
 const ManageDepartmentPage = () => {
   const [searchTerm, setInputValue] = useState("");
@@ -20,6 +31,54 @@ const ManageDepartmentPage = () => {
   console.log(searchTerm);
   if (!!debouncedTerm) query["searchTerm"] = debouncedTerm;
   const { data }: any = useGetallDepartmentsQuery({ ...query });
+  const [deleteDepartment] = useDeleteDepartmentMutation();
+
+  const deleteHandler = async (id: string) => {
+    message.loading("deleting..........");
+    try {
+      await deleteDepartment(id);
+      message.loading("department deleted successfully");
+    } catch (err: any) {
+      message.error(err.message);
+    }
+  };
+  const columns = [
+    {
+      title: "Department Title",
+      dataIndex: "title",
+    },
+    {
+      title: "CreatedAt",
+      dataIndex: "createdAt",
+    },
+    {
+      title: "Action",
+      render: function (data: any) {
+        return (
+          <>
+            <Link href={`/super_admin/department/edit/${data?.id}`}>
+              <Button
+                style={{
+                  margin: "0px 5px",
+                }}
+                onClick={() => console.log(data)}
+                type="primary"
+              >
+                <EditOutlined />
+              </Button>
+            </Link>
+            <Button
+              onClick={() => deleteHandler(data?.id)}
+              type="primary"
+              danger
+            >
+              <DeleteOutlined />
+            </Button>
+          </>
+        );
+      },
+    },
+  ];
 
   return (
     <div>
@@ -31,6 +90,11 @@ const ManageDepartmentPage = () => {
           },
         ]}
       />
+      <ActionBar title="Create Department">
+        <Link href="/super_admin/department/create">
+          <Button type="primary">Create Department</Button>
+        </Link>
+      </ActionBar>
 
       <h1>Department List</h1>
       <div>
@@ -44,9 +108,8 @@ const ManageDepartmentPage = () => {
           }}
         />
       </div>
-      <Link href="/super_admin/department/create">
-        <TableProvider dataSource={data?.departments} columns={columns} />
-      </Link>
+
+      <TableProvider dataSource={data?.departments} columns={columns} />
     </div>
   );
 };

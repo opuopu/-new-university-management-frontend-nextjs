@@ -18,6 +18,7 @@ export const DepartmentApi = baseApi.injectEndpoints({
         method: "GET",
         params: arg,
       }),
+      providesTags: ["department", "deleteDepartment", "updateDepartment"],
       transformResponse: (response: any, meta: any) => {
         return {
           departments: response.data,
@@ -25,8 +26,35 @@ export const DepartmentApi = baseApi.injectEndpoints({
         };
       },
     }),
+    getSingleDepartment: build.query({
+      query: (id) => ({
+        url: `${DEPARTMENT_URL}/${id}`,
+        method: "GET",
+      }),
+      providesTags: ["department", "deleteDepartment"],
+    }),
+    updateDepartment: build.mutation({
+      query: (data) => ({
+        url: `${DEPARTMENT_URL}/${data.id}`,
+        method: "PATCH",
+        data: data.title,
+      }),
+      invalidatesTags: ["updateDepartment"],
+    }),
+    deleteDepartment: build.mutation({
+      query: (id) => ({
+        url: `${DEPARTMENT_URL}/${id}`,
+        method: "DELETE",
+      }),
+      invalidatesTags: ["deleteDepartment"],
+    }),
   }),
 });
 
-export const { useCreateDepartmentMutation, useGetallDepartmentsQuery } =
-  DepartmentApi;
+export const {
+  useCreateDepartmentMutation,
+  useGetallDepartmentsQuery,
+  useGetSingleDepartmentQuery,
+  useUpdateDepartmentMutation,
+  useDeleteDepartmentMutation,
+} = DepartmentApi;

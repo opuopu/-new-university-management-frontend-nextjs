@@ -5,7 +5,13 @@ type ActionBarProps = {
 
 const ActionBar = ({ title, children }: ActionBarProps) => {
   return (
-    <div>
+    <div
+      style={{
+        display: "flex",
+        gap: "6px",
+        marginBottom: "20px",
+      }}
+    >
       <h1>{title}</h1>
       <div style={{ display: "flex" }}>{children}</div>
     </div>

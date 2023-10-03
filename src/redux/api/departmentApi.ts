@@ -13,7 +13,7 @@ export const DepartmentApi = baseApi.injectEndpoints({
       invalidatesTags: ["department"],
     }),
     getallDepartments: build.query({
-      query: (arg: any) => ({
+      query: (arg: Record<string, any>) => ({
         url: `${DEPARTMENT_URL}`,
         method: "GET",
         params: arg,

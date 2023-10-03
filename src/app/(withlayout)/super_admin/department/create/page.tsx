@@ -4,7 +4,7 @@ import Form from "@/components/Forms/Form";
 import FormInput from "@/components/Forms/FormInput";
 import UMBreadCrumb from "@/components/ui/UMBreadCrumb";
 import { useCreateDepartmentMutation } from "@/redux/api/departmentApi";
-import { Button, Col, Row, message } from "antd";
+import { Button, Col, Input, Row, message } from "antd";
 
 const CreateDepartmentPage = () => {
   const [createDepartment] = useCreateDepartmentMutation();
